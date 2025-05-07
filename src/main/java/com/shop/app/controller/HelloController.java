@@ -1,5 +1,7 @@
 package com.shop.app.controller;
 
+import com.shop.app.model.dao.UserInfo;
+import lombok.val;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +31,12 @@ public class HelloController {
      */
     @GetMapping("v1/hello")
     public String sayGreeting(@RequestParam("name") String name){
+        val userInfo = UserInfo
+                .builder()
+                .username("xxxx")
+                .build();
+        System.out.println(userInfo.getId());
         return String.format("hello, %s",name);
     }
+
 }
